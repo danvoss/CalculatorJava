@@ -2,6 +2,8 @@ package com.dvoss;
 
 import java.net.MalformedURLException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
@@ -15,6 +17,7 @@ import java.rmi.server.UnicastRemoteObject;
 public class MathServer extends UnicastRemoteObject implements MathInterface {
 
     public MathServer() throws RemoteException {
+
         System.out.println("Initializing Server");
     }
     public int add(int a, int b) {
@@ -34,6 +37,8 @@ public class MathServer extends UnicastRemoteObject implements MathInterface {
 
         try {
             MathServer ms = new MathServer();
+            // the following line of code, from stack overflow, doesn't do the trick
+            System.setProperty("java.rmi.server.hostname", "10.0.0.9");
             java.rmi.Naming.rebind("MathServ", ms);
             System.out.println("Server Ready");
         }

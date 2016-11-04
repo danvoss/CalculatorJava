@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 /**
  * Created by Dan on 11/4/16.
  */
+
 public interface MathInterface extends Remote {
 
     int add(int a,int b) throws RemoteException;

@@ -105,8 +105,8 @@ public class MathClient extends Frame implements ActionListener {
         int val;
 
         try {
-            String ServerURL="MathServ";
-            MathInterface MI=(MathInterface)Naming.lookup(ServerURL);
+            String ServerURL = "MathServ";
+            MathInterface MI = (MathInterface)Naming.lookup(ServerURL);
             val = MI.subt(i, j);
             t3.setText("" + val);
         }
@@ -122,7 +122,7 @@ public class MathClient extends Frame implements ActionListener {
         int val;
 
         try {
-            String ServerURL="MathServ";
+            String ServerURL = "MathServ";
             MathInterface MI = (MathInterface)Naming.lookup(ServerURL);
             val = MI.mult(i, j);
             t3.setText("" + val);
