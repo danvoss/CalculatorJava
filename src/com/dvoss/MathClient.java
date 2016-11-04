@@ -128,7 +128,7 @@ public class MathClient extends Frame implements ActionListener {
             t3.setText("" + val);
         }
         catch(Exception ex) {
-            System.out.println("Exception:"+ex);
+            System.out.println("Exception: " + ex);
         }
     }
 

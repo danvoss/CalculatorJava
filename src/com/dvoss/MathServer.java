@@ -37,7 +37,11 @@ public class MathServer extends UnicastRemoteObject implements MathInterface {
 
         try {
             MathServer ms = new MathServer();
-            // the following line of code, from stack overflow, doesn't do the trick
+            /*
+            * Needed to add the following 2 lines of code (thanks to stackoverflow.com/questions/15685686/java-rmi-connectexception-connection-refused-to-host-127-0-1-1
+            * and stackoverflow.com/questions/8485239/java-rmi-connect-exception-connection-refused-to-host-timeout)
+            */
+            LocateRegistry.createRegistry(1099);
             System.setProperty("java.rmi.server.hostname", "10.0.0.9");
             java.rmi.Naming.rebind("MathServ", ms);
             System.out.println("Server Ready");
